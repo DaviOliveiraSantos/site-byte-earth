@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Byte-Earth — O Protocolo de Resgate</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #080b12;
+    color: white;
+}
+
+/* CABEÇALHO */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 25px;
+    background: rgba(7, 10, 16, 0.95);
+    border-bottom: 1px solid #2a3748;
+    z-index: 1000;
+}
+
+.logo {
+    position: absolute;
+    left: 25px;
+    width: 55px;
+    height: 55px;
+    border: 2px solid #79ff55;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #79ff55;
+    font-size: 30px;
+    overflow: hidden;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.titulo {
+    text-align: center;
+}
+
+.titulo h1 {
+    color: #79ff55;
+    font-size: 25px;
+    letter-spacing: 1px;
+}
+
+.titulo p {
+    color: #c4b0ff;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+/* MENU LATERAL */
+
+aside {
+    position: fixed;
+    top: 82px;
+    left: 0;
+    bottom: 0;
+    width: 245px;
+    background: #0a0f16;
+    border-right: 1px solid #2a3748;
+    padding: 25px 15px;
+    z-index: 900;
+}
+
+.menu-titulo {
+    color: #8d9aa7;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.menu button {
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: #c7d0d8;
+    text-align: left;
+    padding: 13px 15px;
+    margin: 3px 0;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 15px;
+    border-left: 3px solid transparent;
+    transition: 0.2s;
+}
+
+.menu button:hover {
+    background: #17202c;
+    color: white;
+    border-left-color: #79ff55;
+}
+
+.menu button.ativo {
+    background: #17251c;
+    color: #79ff55;
+    border-left-color: #79ff55;
+}
+
+/* CONTEÚDO PRINCIPAL */
+
+main {
+    margin-left: 245px;
+    padding-top: 82px;
+}
+
+.banner {
+    height: 530px;
+    display: flex;
+    align-items: flex-end;
+    padding: 60px;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.banner-imagem {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(8, 11, 18, 0.85),
+            rgba(8, 11, 18, 0.25),
+            rgba(8, 11, 18, 0.05)
+        );
+    z-index: 1;
+}
+
+.banner-conteudo {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+}
+
+.banner h2 {
+    font-size: 60px;
+    text-transform: uppercase;
+}
+
+.banner h2 span {
+    color: #79ff55;
+}
+
+.banner p {
+    margin-top: 18px;
+    color: #d0d8df;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.conteudo {
+    padding: 45px 60px 80px;
+    max-width: 1100px;
+}
+
+.secao {
+    display: none;
+    animation: aparecer 0.3s ease;
+}
+
+.secao.ativa {
+    display: block;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.secao h2 {
+    color: #79ff55;
+    font-size: 34px;
+    margin-bottom: 8px;
+}
+
+.subtitulo {
+    color: #9eabb8;
+    margin-bottom: 25px;
+}
+
+/* CARDS */
+
+.card {
+    background:
+        linear-gradient(
+            145deg,
+            #101722,
+            #151e2b
+        );
+    border: 1px solid #2a3748;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 18px;
+}
+
+.card h3 {
+    color: #d9c8ff;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #cbd4dc;
+    line-height: 1.7;
+}
+
+.imagem-espaco {
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #111722;
+    border: 1px dashed #45566a;
+    border-radius: 10px;
+    color: #6f7d89;
+    font-size: 18px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.imagem-espaco img {
+    max-width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+/* VÍDEO DA GAMEPLAY */
+
+.video-espaco {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #05080d;
+    border: 1px dashed #45566a;
+    border-radius: 10px;
+    color: #6f7d89;
+    font-size: 18px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.video-espaco video,
+.video-espaco iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    object-fit: contain;
+}
+
+/* VÍDEO DO TUTORIAL */
+
+.video-tutorial {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #05080d;
+    border: 1px solid #2a3748;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.video-tutorial video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* RODAPÉ */
+
+footer {
+    margin-left: 245px;
+    text-align: center;
+    padding: 25px;
+    border-top: 1px solid #2a3748;
+    color: #6f7d89;
+}
+
+/* RESPONSIVIDADE PARA CELULARES E TABLETS */
+
+@media (max-width: 768px) {
+
+    header {
+        height: 72px;
+        padding: 8px 12px;
+    }
+
+    .logo {
+        left: 12px;
+        width: 44px;
+        height: 44px;
+    }
+
+    .titulo h1 {
+        font-size: 20px;
+    }
+
+    .titulo p {
+        font-size: 12px;
+    }
+
+    aside {
+        top: 72px;
+        left: 0;
+        right: 0;
+        bottom: auto;
+        width: 100%;
+        padding: 8px 10px;
+        border-right: 0;
+        border-bottom: 1px solid #2a3748;
+    }
+
+    .menu-titulo {
+        display: none;
+    }
+
+    .menu {
+        display: flex;
+        gap: 6px;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: thin;
+    }
+
+    .menu button {
+        width: auto;
+        flex: 0 0 auto;
+        padding: 10px 12px;
+        margin: 0;
+        font-size: 13px;
+        border-left: 0;
+        border-bottom: 3px solid transparent;
+        text-align: center;
+    }
+
+    .menu button:hover,
+    .menu button.ativo {
+        border-left-color: transparent;
+        border-bottom-color: #79ff55;
+    }
+
+    main {
+        margin-left: 0;
+        padding-top: 132px;
+    }
+
+    .banner {
+        height: 350px;
+        padding: 25px;
+        background-attachment: scroll;
+    }
+
+    .banner h2 {
+        font-size: clamp(30px, 8vw, 46px);
+    }
+
+    .banner p {
+        font-size: 14px;
+    }
+
+    .conteudo {
+        padding: 30px 18px 55px;
+    }
+
+    .secao h2 {
+        font-size: 29px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .imagem-espaco {
+        min-height: 180px;
+        font-size: 15px;
+    }
+
+    .video-espaco,
+    .video-tutorial {
+        min-height: 0;
+    }
+
+    footer {
+        margin-left: 0;
+        padding: 20px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .logo {
+        width: 38px;
+        height: 38px;
+    }
+
+    .titulo h1 {
+        font-size: 17px;
+    }
+
+    .titulo p {
+        font-size: 11px;
+    }
+
+    .banner {
+        height: 300px;
+        padding: 18px;
+    }
+
+    .conteudo {
+        padding-right: 14px;
+        padding-left: 14px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        <img src="icone-jogo.jpg" alt="Logo Byte-Earth">
+    </div>
+
+    <div class="titulo">
+        <h1>BYTE-EARTH</h1>
+        <p>O Protocolo de Resgate</p>
+    </div>
+
+</header>
+
+<!-- MENU -->
+
+<aside>
+
+    <div class="menu-titulo">
+        Categorias
+    </div>
+
+    <nav class="menu">
+
+        <button class="ativo"
+            onclick="mostrar('introducao', this)">
+            Introdução
+        </button>
+
+        <button onclick="mostrar('historia', this)">
+            Sinopse
+        </button>
+
+        <button onclick="mostrar('personagem', this)">
+            Personagens
+        </button>
+
+        <button onclick="mostrar('mecanica', this)">
+            Mecânicas
+        </button>
+
+        <button onclick="mostrar('referencias', this)">
+            Referências
+        </button>
+
+        <button onclick="mostrar('tutorial', this)">
+            Tutorial
+        </button>
+
+        <button onclick="mostrar('gameplay', this)">
+            Vídeo da gameplay
+        </button>
+
+        <button onclick="mostrar('download', this)">
+            Baixe o jogo!
+        </button>
+
+        <button onclick="mostrar('outras', this)">
+            SAC
+        </button>
+
+    </nav>
+
+</aside>
+
+<!-- CONTEÚDO -->
+
+<main>
+
+<section class="banner">
+
+    <img
+        class="banner-imagem"
+        src="banner-jogo.jpeg"
+        alt="Banner de Byte-Earth">
+
+    <div class="banner-conteudo">
+
+        <h2>
+            BYTE-<span>EARTH</span><br>
+            O PROTOCOLO DE RESGATE
+        </h2>
+
+        <p>
+            Um mundo destruído,
+            uma ameaça apocalíptica
+            e um alienígena com uma missão:
+            salvar a Terra.
+        </p>
+
+    </div>
+
+</section>
+
+<div class="conteudo">
+
+<!-- INTRODUÇÃO -->
+
+<section id="introducao" class="secao ativa">
+
+    <h2>Introdução</h2>
+
+    <p class="subtitulo">
+        Conheça a proposta de Byte-Earth.
+    </p>
+
+    <div class="card">
+
+        <h3>Sobre o jogo:</h3>
+
+        <p>
+            <strong>
+                Byte-Earth — O Protocolo de Resgate
+            </strong>
+
+            é um jogo de plataforma e 2D em que você controla o alienígena David
+            e vai em busca de salvar a Terra que está na situação de um apocalipse zumbi,
+            será que você e David serão capazaes de salvar o mundo desta ameaça...
+            (e de quem está orquestrando tudo).
+        </p>
+
+    </div>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>Gênero</h3>
+            <p>Aventura / ação 2D</p>
+        </div>
+
+        <div class="card">
+            <h3>Ambientação</h3>
+            <p>Terra apocalíptica</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SINOPSE -->
+
+<section id="historia" class="secao">
+
+    <h2>Sinopse</h2>
+
+    <p class="subtitulo">
+        O começo da jornada.
+    </p>
+
+    <div class="card">
+
+        <h3>O Protocolo de Resgate</h3>
+
+        <p>
+            Durante uma exploração espacial, o alienígena David tem sua nave derrubada por um pulso eletromagnético misterioso e acaba caindo na Terra. Ao despertar nos destroços, ele encontra um planeta devastado, quase sem vida humana e dominado por uma perigosa corrupção digital. Armado apenas com seu Blaster de Depuração, David precisa desbravar cidades abandonadas e instalações subterrâneas, enfrentando criaturas corrompidas e superando complexos desafios de lógica, programação e matemática. Sua missão é sobreviver e desvendar o grande enigma: o que realmente aconteceu com a humanidade?
+
+            “No mundo onde tudo pode ser reprogramado, até o destino da humanidade depende de uma escolha.”
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h3>Objetivo</h3>
+
+        <p>
+            Explorar o ambiente,
+            sobreviver às ameaças,
+            encontrar itens importantes
+            e avançar até descobrir como
+            executar o protocolo de resgate.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- PERSONAGENS -->
+
+<section id="personagem" class="secao">
+
+    <h2>Personagens</h2>
+
+    <p class="subtitulo">
+        Os personagens de Byte-Earth.
+    </p>
+
+    <div class="card">
+
+        <h3>Alienígena David</h3>
+
+        <p>
+            David é o personagem principal, controlado
+            pelo jogador.
+            <br>
+            Ele possui um visual alienígena,
+            utiliza um traje espacial e sua
+            arma: Blaster de Depuração para enfrentar os zumbis e outros perigos
+            encontrados durante a missão.
+        </p>
+
+        <div class="imagem-espaco">
+            <img src="david.png" alt="Imagem do alienígena David">
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h3>Alienígena Paul</h3>
+
+        <p>
+            Paul é o antagonista principal, enfrentando ou se aliando
+            ao jogador.
+            <br>
+            Ele possui um visual alienígena,
+            utiliza um traje espacial e sua
+            arma: Blaster de Depuração Zumbi para enfrentar o jogador e seus possíveis aliados
+            encontrados durante a missão.
+        </p>
+
+        <div class="imagem-espaco">
+            <img src="paul.png" alt="Imagem do alienígena Paul">
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h3>Zumbi</h3>
+
+        <p>
+            Zumbi comum<br>
+            Quem será que está por trás disso? São muitos!
+        </p>
+
+        <div class="imagem-espaco">
+            <img src="zumbinormalidade.jpeg" alt="Imagem do zumbi">
+        </div>
+
+    </div>
+
+    </div>
+
+</section>
+
+<!-- MECÂNICAS -->
+
+<section id="mecanica" class="secao">
+
+    <h2>Mecânicas</h2>
+
+    <p class="subtitulo">
+        Como o jogador interage com o jogo.
+    </p>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <h3>Movimentação</h3>
+
+            <p>
+                • Andar<br>
+                • Correr<br>
+                • Pular<br>
+                • Agachar
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Combate</h3>
+
+            <p>
+                • Mirar<br>
+                • Atirar<br>
+                • Enfrentar inimigos<br>
+                • Reagir ao dano
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h3>Imagem das mecânicas</h3>
+
+        <div class="imagem-espaco">
+            <img src="mecanica-jogo.jpg" alt="Imagem das mecânicas do jogo">
+        </div>
+
+    </div>
+
+</section>
+
+<!-- REFERÊNCIAS -->
+
+<section id="referencias" class="secao">
+
+    <h2>Referências</h2>
+
+    <p class="subtitulo">
+        Referências e materiais utilizados no desenvolvimento de Byte-Earth.
+    </p>
+
+    <div class="card">
+
+        <h3>Inspirações</h3>
+
+        <p>
+            Além da imaginação fértil dos desenvolvedores, alguns jogos e projetos que serviram de inspiração foram:<br>
+
+            Mega man: a referência mais evidente, com o protagonista tendo características semelhantes ao Mega-man, já que
+            David é pequeno e está em visão lateral, com a estrutura muito parecida com o personagem.<br>
+
+            Alien Hominid: A história de Alien Hominid é parecida com a história de Byte-Earth, já que um alien(muito parecido com
+            David inclusive) é submetido a situações caóiticas em meio a um cenário de destruição e cheio de combate.<br>
+
+            Jogos de apocalipse zumbi em geral: O cenário zumbi foi inspirado no sucesso de séries e jogos como The Walking Dead, Resident Evil,
+            Left 4 Dead e etc
+        </p>
+
+    </div>
+
+</section>
+
+<!-- TUTORIAL -->
+
+<section id="tutorial" class="secao">
+
+    <h2>Tutorial</h2>
+
+    <p class="subtitulo">
+        Aprenda como jogar Byte-Earth.
+    </p>
+
+    <div class="card">
+
+        <h3>Como jogar</h3>
+
+        <p>
+            Confira o tutorial para conhecer os comandos e aprender o básico
+            para começar sua aventura em Byte-Earth.
+        </p>
+
+        <div class="video-tutorial">
+
+            <video controls playsinline preload="metadata">
+
+                <source src="TUTORIAL.mp4" type="video/mp4">
+
+            </video>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- VÍDEO DA GAMEPLAY -->
+
+<section id="gameplay" class="secao">
+
+    <h2>Vídeo da gameplay</h2>
+
+    <p class="subtitulo">
+        Veja Byte-Earth em ação.
+    </p>
+
+    <div class="card">
+
+        <h3>Gameplay do jogo</h3>
+
+        <p>
+            Assista a um vídeo mostrando um pouco da jogabilidade,
+            dos cenários e dos desafios encontrados durante a aventura.
+        </p>
+
+        <div class="video-espaco">
+    <video controls>
+        <source src="video.gameplay.mp4" type="video/mp4">
+    </video>
+</div>
+
+    </div>
+
+</section>
+
+<!-- DOWNLOAD -->
+
+<section id="download" class="secao">
+
+    <h2>Baixe o jogo!</h2>
+
+    <p class="subtitulo">
+        Em breve você poderá baixar o jogo por aqui.
+    </p>
+
+    <div class="card">
+
+        <h3>Download</h3>
+
+        <p>
+            Link do github:<br>
+            https://github.com/ophkkj/Byte-Earth-Jogo-2026
+        </p>
+
+    </div>
+
+</section>
+
+<!-- SAC -->
+
+<section id="outras" class="secao">
+
+    <h2>SAC</h2>
+
+    <p class="subtitulo">
+        Entre em contato com os desenvolvedores:
+    </p>
+
+    <div class="card">
+
+        <h3>E-mail</h3>
+
+        <p>
+            davielmerror@gmail.com
+            <br>
+            ph13012000@gmail.com
+            <br>
+            guilherme.lima271985@gmail.com
+        </p>
+
+    </div>
+
+</section>
+
+</div>
+
+</main>
+
+<!-- RODAPÉ -->
+
+<footer>
+
+    Byte-Earth — O Protocolo de Resgate
+    • Todos os direitos reservados
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+function mostrar(id, botao) {
+
+    const secoes =
+        document.querySelectorAll(".secao");
+
+    secoes.forEach(function(secao) {
+
+        secao.classList.remove("ativa");
+
+    });
+
+    document
+        .getElementById(id)
+        .classList.add("ativa");
+
+    const botoes =
+        document.querySelectorAll(".menu button");
+
+    botoes.forEach(function(btn) {
+
+        btn.classList.remove("ativo");
+
+    });
+
+    botao.classList.add("ativo");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+window.addEventListener("scroll", function() {
+
+    const imagem =
+        document.querySelector(".banner-imagem");
+
+    const scroll =
+        window.scrollY;
+
+    imagem.style.transform =
+        "translateY(" + (scroll * 0.35) + "px)";
+
+});
+
+</script>
+
+</body>
+</html>
