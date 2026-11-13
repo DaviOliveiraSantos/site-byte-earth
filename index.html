@@ -91,6 +91,7 @@ aside {
     border-right: 1px solid #2a3748;
     padding: 25px 15px;
     z-index: 900;
+    overflow-y: auto;
 }
 
 .menu-titulo {
@@ -539,6 +540,24 @@ footer {
             Vídeo da gameplay
         </button>
 
+        <!-- NOVAS ABAS -->
+
+        <button onclick="mostrar('documentacao', this)">
+            Documentação
+        </button>
+
+        <button onclick="mostrar('storyboard', this)">
+            Storyboard
+        </button>
+
+        <button onclick="mostrar('codigos', this)">
+            Códigos principais
+        </button>
+
+        <button onclick="mostrar('cenarios', this)">
+            Cenários
+        </button>
+
         <button onclick="mostrar('download', this)">
             Baixe o jogo!
         </button>
@@ -808,7 +827,9 @@ footer {
             David inclusive) é submetido a situações caóiticas em meio a um cenário de destruição e cheio de combate.<br>
 
             Jogos de apocalipse zumbi em geral: O cenário zumbi foi inspirado no sucesso de séries e jogos como The Walking Dead, Resident Evil,
-            Left 4 Dead e etc
+            Left 4 Dead e etc<br>
+
+            Cuphead: além de todos esses, a boss fight foi inspirada nas lutas de Cuphead
         </p>
 
     </div>
@@ -877,6 +898,339 @@ footer {
 
 </section>
 
+
+<!-- DOCUMENTAÇÃO -->
+
+<section id="documentacao" class="secao">
+
+    <h2>Documentação</h2>
+
+    <p class="subtitulo">
+        Materiais de documentação do projeto Byte-Earth.
+    </p>
+
+    <div class="card">
+
+        <h3>Roteiro completo</h3>
+
+        <p>
+            Aqui será apresentado o roteiro completo do jogo.
+        </p>
+
+        <div class="imagem-espaco">
+
+    <a href="ROTEIRO.COMPLETO.pdf" target="_blank">
+        ROTEIRO COMPLETO
+    </a>
+
+</div>
+
+    </div>
+
+    <div class="card">s
+
+        <h3>ABNT</h3>
+
+        <p>
+            Documentação do projeto organizada de acordo
+            com as normas solicitadas.
+        </p>
+
+        <div class="imagem-espaco">
+
+    <a href="Byte_Earth_Documentacao_ABNT_Completa.docx" target="_blank">
+        ABNT
+    </a>
+
+</div>
+
+    </div>
+
+    <div class="card">
+
+        <h3>Documentação do site</h3>
+
+        <p>
+            Documentação referente à criação,
+            estrutura e desenvolvimento do site.
+        </p>
+
+        <div class="imagem-espaco">
+
+    <a href="Documentacao_site_certo.pdf" target="_blank">
+        DOCUMENTAÇÃO DO SITE
+    </a>
+
+</div>
+
+    </div>
+
+</section>
+
+
+<!-- STORYBOARD -->
+
+<section id="storyboard" class="secao">
+
+    <h2>Storyboards</h2>
+
+    <p class="subtitulo">
+        Representação das principais cenas do jogo.<br>
+        (Idealizadas em Maio, nem todas foram pra versão final)
+    </p>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <h3>Storyboard 1</h3>
+
+            <div class="imagem-espaco">
+                <img src="storyboard1.jpg" alt="Storyboard 1">
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Storyboard 2</h3>
+
+            <div class="imagem-espaco">
+                <img src="storyboard2.jpg" alt="Storyboard 2">
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Storyboard 3</h3>
+
+            <div class="imagem-espaco">
+                <img src="storyboard3.jpg" alt="Storyboard 3">
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Storyboard 4</h3>
+
+            <div class="imagem-espaco">
+                <img src="storyboard4.jpg" alt="Storyboard 4">
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Storyboard 5</h3>
+
+            <div class="imagem-espaco">
+                <img src="storyboard5.jpg" alt="Storyboard 5">
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CÓDIGOS PRINCIPAIS -->
+
+<section id="codigos" class="secao">
+
+    <h2>Códigos principais</h2>
+
+    <p class="subtitulo">
+        Principais códigos utilizados no projeto.
+    </p>
+
+    <div class="card">
+
+        <h3>Principais códigos do jogo</h3>
+
+        <p>
+            Aqui serão apresentados os principais códigos
+            utilizados no desenvolvimento do jogo.
+        </p>
+
+        <div class="imagem-espaco">
+
+            <button onclick="codigoJogoAnterior()">
+                &#10094;
+            </button>
+
+            <img id="codigo-jogo-imagem"
+                src="ESPACO_PARA_IMAGEM_CODIGO_JOGO_1"
+                alt="Código principal do jogo">
+
+            <button onclick="codigoJogoProximo()">
+                &#10095;
+            </button>
+
+        </div>
+
+        <p>
+            <span id="codigo-jogo-contador">1 / 5</span>
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>Principais códigos do site</h3>
+
+        <p>
+            Aqui serão apresentados os principais códigos
+            utilizados no desenvolvimento do site.
+        </p>
+
+        <div class="imagem-espaco">
+
+            <button onclick="codigoSiteAnterior()">
+                &#10094;
+            </button>
+
+            <img id=""
+                src="ESPACO_PARA_IMAGEM_CODIGO_SITE_1"
+                alt="Código principal do site">
+
+            <button onclick="codigoSiteProximo()">
+                &#10095;
+            </button>
+
+        </div>
+
+        <p>
+            <span id="codigo-site-contador">1 / 5</span>
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- CENÁRIOS -->
+
+<section id="cenarios" class="secao">
+
+    <h2>Cenários</h2>
+
+    <p class="subtitulo">
+        Principais cenários presentes no jogo.
+    </p>
+
+    <div class="card">
+
+        <h3> Menu pricipal</h3>
+
+        <div class="imagem-espaco">
+            <img src="menu.jpeg" alt="Cenário 1">
+        </div>
+
+        <p>
+            Menu Principal, é nessa imagem que você tem sua primeira interaçaão com Byte-Earth, podendo começar a jogar,
+            escolher opções, ou sair do jogo... Mas você não faria isso com o David.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>Avenida dos Sonhos </h3>
+
+        <div class="imagem-espaco">
+            <img src="fase1.jpeg" alt="Cenário 2">
+        </div>
+
+        <p>
+            Fase inicial, é aqui que você aprende os comandos básicos e inicia sua jornada em Byte-Earth.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>Subúrbios Devastados (parte 1)</h3>
+
+        <div class="imagem-espaco">
+            <img src="SUBURBIOS.DEVASTADOS.png" alt="Cenário 3">
+        </div>
+
+        <p>
+            Apenas um zumbi para preparar David do que vem pela frente. 
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>Subúrbios Devastados (parte 2)</h3>
+
+        <div class="imagem-espaco">
+            <img src="Metrô em Ruínas na Cidade Abandonada.png" alt="Cenário 4">
+        </div>
+
+        <p>
+             CUIDADO! SÃO MUITOS!!!
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>Metrô em Ruínas (parte 1)</h3>
+
+        <div class="imagem-espaco">
+            <img src="fase4.jpeg" alt="Cenário 5">
+        </div>
+
+        <p>
+            Mais alguns zumbis. Onde foram parar os humanos?
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>Metrô em Ruínas (parte 2, Quiz)</h3>
+
+        <div class="imagem-espaco">
+            <img src="METRO.QUIZ.png" alt="Cenário 6">
+        </div>
+
+        <p>
+            Chega de zumbis! Aqui você terá de por em prática seus conhecimentos sobre IFDS, ACRE e matemática. Isso se quiser
+            passar para uma... EMBOSCADA!! 
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h3>David vs Paul</h3>
+
+        <div class="imagem-espaco">
+            <img src="arena.jpeg" alt="Cenário 7">
+        </div>
+
+        <p>
+            Chegou a hora de enfrentar o responsável por todo o caos da Terra, 
+            se prepare para uma batalha épica contra Paul, o irmão do protagonista.
+        </p>
+
+    </div>
+
+</section>
+
+
 <!-- DOWNLOAD -->
 
 <section id="download" class="secao">
@@ -893,7 +1247,7 @@ footer {
 
         <p>
             Link do github:<br>
-            https://github.com/ophkkj/Byte-Earth-Jogo-2026
+            https://github.com/ophkkj/ByteEarth_completo_versao_final
         </p>
 
     </div>
@@ -975,6 +1329,85 @@ function mostrar(id, botao) {
     });
 
 }
+
+
+/* CÓDIGOS DO JOGO */
+
+let codigoJogoAtual = 1;
+
+function codigoJogoProximo() {
+
+    codigoJogoAtual++;
+
+    if (codigoJogoAtual > 5) {
+        codigoJogoAtual = 1;
+    }
+
+    document.getElementById("codigo-jogo-imagem").src =
+        "ESPACO_PARA_IMAGEM_CODIGO_JOGO_" +
+        codigoJogoAtual;
+
+    document.getElementById("codigo-jogo-contador").textContent =
+        codigoJogoAtual + " / 5";
+
+}
+
+function codigoJogoAnterior() {
+
+    codigoJogoAtual--;
+
+    if (codigoJogoAtual < 1) {
+        codigoJogoAtual = 5;
+    }
+
+    document.getElementById("codigo-jogo-imagem").src =
+        "ESPACO_PARA_IMAGEM_CODIGO_JOGO_" +
+        codigoJogoAtual;
+
+    document.getElementById("codigo-jogo-contador").textContent =
+        codigoJogoAtual + " / 5";
+
+}
+
+
+/* CÓDIGOS DO SITE */
+
+let codigoSiteAtual = 1;
+
+function codigoSiteProximo() {
+
+    codigoSiteAtual++;
+
+    if (codigoSiteAtual > 5) {
+        codigoSiteAtual = 1;
+    }
+
+    document.getElementById("codigo-site-imagem").src =
+        "ESPACO_PARA_IMAGEM_CODIGO_SITE_" +
+        codigoSiteAtual;
+
+    document.getElementById("codigo-site-contador").textContent =
+        codigoSiteAtual + " / 5";
+
+}
+
+function codigoSiteAnterior() {
+
+    codigoSiteAtual--;
+
+    if (codigoSiteAtual < 1) {
+        codigoSiteAtual = 5;
+    }
+
+    document.getElementById("codigo-site-imagem").src =
+        "ESPACO_PARA_IMAGEM_CODIGO_SITE_" +
+        codigoSiteAtual;
+
+    document.getElementById("codigo-site-contador").textContent =
+        codigoSiteAtual + " / 5";
+
+}
+
 
 window.addEventListener("scroll", function() {
 
