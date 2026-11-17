@@ -278,6 +278,18 @@ main {
     border-radius: 8px;
 }
 
+.codigo-imagem {
+    max-width: calc(100% - 100px);
+    max-height: 450px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    flex-shrink: 1;
+    min-width: 0;
+}
+
+
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -927,7 +939,7 @@ footer {
 
     </div>
 
-    <div class="card">s
+    <div class="card">
 
         <h3>ABNT</h3>
 
@@ -1062,7 +1074,8 @@ footer {
             </button>
 
             <img id="codigo-jogo-imagem"
-                src="ESPACO_PARA_IMAGEM_CODIGO_JOGO_1"
+                src="codegame1.jpeg"
+                class="codigo-imagem"
                 alt="Código principal do jogo">
 
             <button onclick="codigoJogoProximo()">
@@ -1073,6 +1086,13 @@ footer {
 
         <p>
             <span id="codigo-jogo-contador">1 / 5</span>
+        </p>
+
+        <p>
+            <strong>Legenda do código:</strong>
+            <span id="codigo-jogo-legenda">Parte do código que permite o David andar, além de um pouco da programação que
+                permite existir a gravidade, falando mais sobre a física do jogo. 
+            </span>
         </p>
 
     </div>
@@ -1093,8 +1113,9 @@ footer {
                 &#10094;
             </button>
 
-            <img id=""
-                src="ESPACO_PARA_IMAGEM_CODIGO_SITE_1"
+            <img id="codigo-site-imagem"
+                src="codesite1.jpeg"
+                class="codigo-imagem"
                 alt="Código principal do site">
 
             <button onclick="codigoSiteProximo()">
@@ -1105,6 +1126,12 @@ footer {
 
         <p>
             <span id="codigo-site-contador">1 / 5</span>
+        </p>
+
+        <p>
+            <strong>Legenda do código:</strong>
+            <span id="codigo-site-legenda">Um pouco do início do código, início do cabeçalho e
+                 de uma das partes mais importantes, o header. </span>
         </p>
 
     </div>
@@ -1247,7 +1274,7 @@ footer {
 
         <p>
             Link do github:<br>
-            https://github.com/ophkkj/ByteEarth_completo_versao_final
+            https://github.com/ophkkj/ByteEarth_versao-fn
         </p>
 
     </div>
@@ -1335,6 +1362,35 @@ function mostrar(id, botao) {
 
 let codigoJogoAtual = 1;
 
+const imagensCodigoJogo = [
+    "codegame1.jpeg",
+    "codegame2.jpeg",
+    "codegame3.jpeg",
+    "codegame4.jpeg",
+    "codegame5.jpeg"
+];
+
+const legendasCodigoJogo = [
+    "[ESCREVA AQUI A LEGENDA DO CÓDIGO 1]",
+    "Um pouco mais sobre a movimentação horizontal de David e também sobre a reação dele ao levar dano.",
+    "Uma parte sobre o comportamento dos zumbis, incluindo onde eles são gerados, quantidade e distribuição pelas fases.",
+    "Essa parte dos códigos mostra um pouco sobre a mecânica de troca de armas, o desenvolvimento do canhão, que tira mais pontos de vida e principalmente sobre o sistema de ataque, como que a bala sai e etc",
+    "Esse pedaço fala um pouco mais sobre interface, animações e atalhos de teste"
+];
+
+function atualizarCodigoJogo() {
+
+    document.getElementById("codigo-jogo-imagem").src =
+        imagensCodigoJogo[codigoJogoAtual - 1];
+
+    document.getElementById("codigo-jogo-contador").textContent =
+        codigoJogoAtual + " / 5";
+
+    document.getElementById("codigo-jogo-legenda").textContent =
+        legendasCodigoJogo[codigoJogoAtual - 1];
+
+}
+
 function codigoJogoProximo() {
 
     codigoJogoAtual++;
@@ -1343,12 +1399,7 @@ function codigoJogoProximo() {
         codigoJogoAtual = 1;
     }
 
-    document.getElementById("codigo-jogo-imagem").src =
-        "ESPACO_PARA_IMAGEM_CODIGO_JOGO_" +
-        codigoJogoAtual;
-
-    document.getElementById("codigo-jogo-contador").textContent =
-        codigoJogoAtual + " / 5";
+    atualizarCodigoJogo();
 
 }
 
@@ -1360,12 +1411,7 @@ function codigoJogoAnterior() {
         codigoJogoAtual = 5;
     }
 
-    document.getElementById("codigo-jogo-imagem").src =
-        "ESPACO_PARA_IMAGEM_CODIGO_JOGO_" +
-        codigoJogoAtual;
-
-    document.getElementById("codigo-jogo-contador").textContent =
-        codigoJogoAtual + " / 5";
+    atualizarCodigoJogo();
 
 }
 
@@ -1373,6 +1419,35 @@ function codigoJogoAnterior() {
 /* CÓDIGOS DO SITE */
 
 let codigoSiteAtual = 1;
+
+const imagensCodigoSite = [
+    "codesite1.jpeg",
+    "codesite2.jpg",
+    "codesite3.jpg",
+    "codesite4.jpg",
+    "codesite5.jpg"
+];
+
+const legendasCodigoSite = [
+    "[ESCREVA AQUI A LEGENDA DO CÓDIGO 1]",
+    "Aqui mostra um pouco de como foi programado as abas do código(Introdução, Sinopse, Personagens e etc...)",
+    "Este código controla a navegação do site, exibindo a seção selecionada, desativando as demais e destacando no menu a opção escolhida.",
+    "Um pouco da produção do carrossel, que está sendo usado nessa mesma aba. O carrossel doi uma das partes mais difíceis de serem programadas.",
+    "Responsividade: aqui mostra um pouco da programação do processo de responsividade do site (funcionar em qualquer dispositivo)."
+];
+
+function atualizarCodigoSite() {
+
+    document.getElementById("codigo-site-imagem").src =
+        imagensCodigoSite[codigoSiteAtual - 1];
+
+    document.getElementById("codigo-site-contador").textContent =
+        codigoSiteAtual + " / 5";
+
+    document.getElementById("codigo-site-legenda").textContent =
+        legendasCodigoSite[codigoSiteAtual - 1];
+
+}
 
 function codigoSiteProximo() {
 
@@ -1382,12 +1457,7 @@ function codigoSiteProximo() {
         codigoSiteAtual = 1;
     }
 
-    document.getElementById("codigo-site-imagem").src =
-        "ESPACO_PARA_IMAGEM_CODIGO_SITE_" +
-        codigoSiteAtual;
-
-    document.getElementById("codigo-site-contador").textContent =
-        codigoSiteAtual + " / 5";
+    atualizarCodigoSite();
 
 }
 
@@ -1399,12 +1469,7 @@ function codigoSiteAnterior() {
         codigoSiteAtual = 5;
     }
 
-    document.getElementById("codigo-site-imagem").src =
-        "ESPACO_PARA_IMAGEM_CODIGO_SITE_" +
-        codigoSiteAtual;
-
-    document.getElementById("codigo-site-contador").textContent =
-        codigoSiteAtual + " / 5";
+    atualizarCodigoSite();
 
 }
 
