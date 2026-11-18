@@ -79,6 +79,226 @@ header {
     margin-top: 4px;
 }
 
+
+/* ============================= */
+/* OPÇÕES DE VISUALIZAÇÃO */
+/* ============================= */
+
+.opcoes-visualizacao {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1100;
+}
+
+#botao-tema {
+    width: 42px;
+    height: 42px;
+    border: 1px solid #2a3748;
+    border-radius: 8px;
+    background: #0a0f16;
+    color: #c7d0d8;
+    font-size: 25px;
+    line-height: 1;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#botao-tema:hover {
+    background: #17202c;
+    color: #79ff55;
+    border-color: #79ff55;
+}
+
+.menu-tema {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    width: 175px;
+    background: #0a0f16;
+    border: 1px solid #2a3748;
+    border-radius: 8px;
+    padding: 6px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+.menu-tema.aberto {
+    display: block;
+}
+
+.menu-tema button {
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: #c7d0d8;
+    text-align: left;
+    padding: 10px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.menu-tema button:hover {
+    background: #17202c;
+    color: #79ff55;
+}
+
+
+/* ============================= */
+/* MODO CLARO */
+/* ============================= */
+
+body.modo-claro {
+    background: #f4f6f8;
+    color: #17202c;
+}
+
+body.modo-claro header {
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom-color: #cbd3dc;
+}
+
+body.modo-claro #botao-tema {
+    background: #ffffff;
+    color: #4b5865;
+    border-color: #cbd3dc;
+}
+
+body.modo-claro #botao-tema:hover {
+    background: #eef3f0;
+    color: #2f8f1f;
+    border-color: #79ff55;
+}
+
+body.modo-claro .menu-tema {
+    background: #ffffff;
+    border-color: #cbd3dc;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+body.modo-claro .menu-tema button {
+    color: #36414c;
+}
+
+body.modo-claro .menu-tema button:hover {
+    background: #eef3f0;
+    color: #2f8f1f;
+}
+
+body.modo-claro aside {
+    background: #ffffff;
+    border-right-color: #cbd3dc;
+}
+
+body.modo-claro .menu-titulo {
+    color: #66727d;
+}
+
+body.modo-claro .menu button {
+    color: #4b5865;
+}
+
+body.modo-claro .menu button:hover {
+    background: #e9eef2;
+    color: #17202c;
+    border-left-color: #2f8f1f;
+}
+
+body.modo-claro .menu button.ativo {
+    background: #e8f3e5;
+    color: #2f8f1f;
+    border-left-color: #2f8f1f;
+}
+
+body.modo-claro .banner::after {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.82),
+            rgba(255, 255, 255, 0.30),
+            rgba(255, 255, 255, 0.05)
+        );
+}
+
+body.modo-claro .banner p {
+    color: #27333e;
+}
+
+body.modo-claro .secao h2 {
+    color: #2f8f1f;
+}
+
+body.modo-claro .subtitulo {
+    color: #66727d;
+}
+
+body.modo-claro .card {
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #eef2f5
+        );
+    border-color: #cbd3dc;
+}
+
+body.modo-claro .card h3 {
+    color: #5d42a6;
+}
+
+body.modo-claro .card p {
+    color: #36414c;
+}
+
+body.modo-claro .imagem-espaco {
+    background: #edf1f4;
+    border-color: #9eabb8;
+    color: #66727d;
+}
+
+body.modo-claro .video-espaco {
+    background: #e8edf1;
+    border-color: #9eabb8;
+    color: #66727d;
+}
+
+body.modo-claro .video-tutorial {
+    background: #e8edf1;
+    border-color: #cbd3dc;
+}
+
+body.modo-claro footer {
+    border-top-color: #cbd3dc;
+    color: #66727d;
+}
+
+body.modo-claro .botao-download {
+    background: #2f8f1f;
+    color: #ffffff;
+    border-color: #2f8f1f;
+}
+
+body.modo-claro .botao-download:hover {
+    background: transparent;
+    color: #2f8f1f;
+    border-color: #2f8f1f;
+}
+
+body.modo-claro .logo {
+    border-color: #2f8f1f;
+}
+
+body.modo-claro .titulo h1 {
+    color: #2f8f1f;
+}
+
+body.modo-claro .titulo p {
+    color: #6f50bd;
+}
+
+
 /* MENU LATERAL */
 
 aside {
@@ -128,6 +348,7 @@ aside {
     color: #79ff55;
     border-left-color: #79ff55;
 }
+
 
 /* CONTEÚDO PRINCIPAL */
 
@@ -231,6 +452,7 @@ main {
     margin-bottom: 25px;
 }
 
+
 /* CARDS */
 
 .card {
@@ -289,12 +511,12 @@ main {
     min-width: 0;
 }
 
-
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 18px;
 }
+
 
 /* VÍDEO DA GAMEPLAY */
 
@@ -322,6 +544,7 @@ main {
     object-fit: contain;
 }
 
+
 /* VÍDEO DO TUTORIAL */
 
 .video-tutorial {
@@ -340,6 +563,30 @@ main {
     object-fit: contain;
 }
 
+
+/* BOTÃO DE DOWNLOAD */
+
+.botao-download {
+    display: inline-block;
+    padding: 13px 28px;
+    margin-top: 10px;
+    background: #79ff55;
+    color: #080b12;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 2px solid #79ff55;
+    transition: 0.2s;
+}
+
+.botao-download:hover {
+    background: transparent;
+    color: #79ff55;
+    transform: scale(1.05);
+}
+
+
 /* RODAPÉ */
 
 footer {
@@ -349,6 +596,7 @@ footer {
     border-top: 1px solid #2a3748;
     color: #6f7d89;
 }
+
 
 /* RESPONSIVIDADE PARA CELULARES E TABLETS */
 
@@ -371,6 +619,20 @@ footer {
 
     .titulo p {
         font-size: 12px;
+    }
+
+    .opcoes-visualizacao {
+        right: 12px;
+    }
+
+    #botao-tema {
+        width: 38px;
+        height: 38px;
+        font-size: 23px;
+    }
+
+    .menu-tema {
+        top: 45px;
     }
 
     aside {
@@ -411,6 +673,11 @@ footer {
     .menu button.ativo {
         border-left-color: transparent;
         border-bottom-color: #79ff55;
+    }
+
+    body.modo-claro .menu button:hover,
+    body.modo-claro .menu button.ativo {
+        border-bottom-color: #2f8f1f;
     }
 
     main {
@@ -495,7 +762,6 @@ footer {
 }
 
 </style>
-
 </head>
 
 <body>
@@ -511,7 +777,31 @@ footer {
         <p>O Protocolo de Resgate</p>
     </div>
 
+    <div class="opcoes-visualizacao">
+
+        <button
+            id="botao-tema"
+            onclick="alternarMenuTema()"
+            aria-label="Opções de visualização">
+            ⋮
+        </button>
+
+        <div id="menu-tema" class="menu-tema">
+
+            <button onclick="mudarTema('claro')">
+                ☀️ Modo claro
+            </button>
+
+            <button onclick="mudarTema('escuro')">
+                🌙 Modo escuro
+            </button>
+
+        </div>
+
+    </div>
+
 </header>
+
 
 <!-- MENU -->
 
@@ -552,8 +842,6 @@ footer {
             Vídeo da gameplay
         </button>
 
-        <!-- NOVAS ABAS -->
-
         <button onclick="mostrar('documentacao', this)">
             Documentação
         </button>
@@ -581,6 +869,7 @@ footer {
     </nav>
 
 </aside>
+
 
 <!-- CONTEÚDO -->
 
@@ -611,7 +900,9 @@ footer {
 
 </section>
 
+
 <div class="conteudo">
+
 
 <!-- INTRODUÇÃO -->
 
@@ -628,6 +919,7 @@ footer {
         <h3>Sobre o jogo:</h3>
 
         <p>
+
             <strong>
                 Byte-Earth — O Protocolo de Resgate
             </strong>
@@ -636,6 +928,7 @@ footer {
             e vai em busca de salvar a Terra que está na situação de um apocalipse zumbi,
             será que você e David serão capazaes de salvar o mundo desta ameaça...
             (e de quem está orquestrando tudo).
+
         </p>
 
     </div>
@@ -656,6 +949,7 @@ footer {
 
 </section>
 
+
 <!-- SINOPSE -->
 
 <section id="historia" class="secao">
@@ -671,9 +965,11 @@ footer {
         <h3>O Protocolo de Resgate</h3>
 
         <p>
+
             Durante uma exploração espacial, o alienígena David tem sua nave derrubada por um pulso eletromagnético misterioso e acaba caindo na Terra. Ao despertar nos destroços, ele encontra um planeta devastado, quase sem vida humana e dominado por uma perigosa corrupção digital. Armado apenas com seu Blaster de Depuração, David precisa desbravar cidades abandonadas e instalações subterrâneas, enfrentando criaturas corrompidas e superando complexos desafios de lógica, programação e matemática. Sua missão é sobreviver e desvendar o grande enigma: o que realmente aconteceu com a humanidade?
 
             “No mundo onde tudo pode ser reprogramado, até o destino da humanidade depende de uma escolha.”
+
         </p>
 
     </div>
@@ -683,16 +979,19 @@ footer {
         <h3>Objetivo</h3>
 
         <p>
+
             Explorar o ambiente,
             sobreviver às ameaças,
             encontrar itens importantes
             e avançar até descobrir como
             executar o protocolo de resgate.
+
         </p>
 
     </div>
 
 </section>
+
 
 <!-- PERSONAGENS -->
 
@@ -709,59 +1008,77 @@ footer {
         <h3>Alienígena David</h3>
 
         <p>
+
             David é o personagem principal, controlado
             pelo jogador.
             <br>
+
             Ele possui um visual alienígena,
             utiliza um traje espacial e sua
             arma: Blaster de Depuração para enfrentar os zumbis e outros perigos
             encontrados durante a missão.
+
         </p>
 
         <div class="imagem-espaco">
-            <img src="david.png" alt="Imagem do alienígena David">
+
+            <img src="david.png"
+                 alt="Imagem do alienígena David">
+
         </div>
 
     </div>
+
 
     <div class="card">
 
         <h3>Alienígena Paul</h3>
 
         <p>
+
             Paul é o antagonista principal, enfrentando ou se aliando
             ao jogador.
             <br>
+
             Ele possui um visual alienígena,
             utiliza um traje espacial e sua
             arma: Blaster de Depuração Zumbi para enfrentar o jogador e seus possíveis aliados
             encontrados durante a missão.
+
         </p>
 
         <div class="imagem-espaco">
-            <img src="paul.png" alt="Imagem do alienígena Paul">
+
+            <img src="paul.png"
+                 alt="Imagem do alienígena Paul">
+
         </div>
 
     </div>
+
 
     <div class="card">
 
         <h3>Zumbi</h3>
 
         <p>
+
             Zumbi comum<br>
             Quem será que está por trás disso? São muitos!
+
         </p>
 
         <div class="imagem-espaco">
-            <img src="zumbinormalidade.jpeg" alt="Imagem do zumbi">
+
+            <img src="zumbinormalidade.jpeg"
+                 alt="Imagem do zumbi">
+
         </div>
 
     </div>
 
-    </div>
-
 </section>
+
 
 <!-- MECÂNICAS -->
 
@@ -808,12 +1125,16 @@ footer {
         <h3>Imagem das mecânicas</h3>
 
         <div class="imagem-espaco">
-            <img src="mecanica-jogo.jpg" alt="Imagem das mecânicas do jogo">
+
+            <img src="mecanica-jogo.jpg"
+                 alt="Imagem das mecânicas do jogo">
+
         </div>
 
     </div>
 
 </section>
+
 
 <!-- REFERÊNCIAS -->
 
@@ -830,6 +1151,7 @@ footer {
         <h3>Inspirações</h3>
 
         <p>
+
             Além da imaginação fértil dos desenvolvedores, alguns jogos e projetos que serviram de inspiração foram:<br>
 
             Mega man: a referência mais evidente, com o protagonista tendo características semelhantes ao Mega-man, já que
@@ -842,11 +1164,13 @@ footer {
             Left 4 Dead e etc<br>
 
             Cuphead: além de todos esses, a boss fight foi inspirada nas lutas de Cuphead
+
         </p>
 
     </div>
 
 </section>
+
 
 <!-- TUTORIAL -->
 
@@ -863,8 +1187,10 @@ footer {
         <h3>Como jogar</h3>
 
         <p>
+
             Confira o tutorial para conhecer os comandos e aprender o básico
             para começar sua aventura em Byte-Earth.
+
         </p>
 
         <div class="video-tutorial">
@@ -881,6 +1207,7 @@ footer {
 
 </section>
 
+
 <!-- VÍDEO DA GAMEPLAY -->
 
 <section id="gameplay" class="secao">
@@ -896,15 +1223,21 @@ footer {
         <h3>Gameplay do jogo</h3>
 
         <p>
+
             Assista a um vídeo mostrando um pouco da jogabilidade,
             dos cenários e dos desafios encontrados durante a aventura.
+
         </p>
 
         <div class="video-espaco">
-    <video controls>
-        <source src="video.gameplay.mp4" type="video/mp4">
-    </video>
-</div>
+
+            <video controls>
+
+                <source src="video2.0.mp4" type="video/mp4">
+
+            </video>
+
+        </div>
 
     </div>
 
@@ -931,11 +1264,11 @@ footer {
 
         <div class="imagem-espaco">
 
-    <a href="ROTEIRO.COMPLETO.pdf" target="_blank">
-        ROTEIRO COMPLETO
-    </a>
+            <a href="ROTEIRO.COMPLETO.pdf" target="_blank">
+                ROTEIRO COMPLETO
+            </a>
 
-</div>
+        </div>
 
     </div>
 
@@ -950,11 +1283,11 @@ footer {
 
         <div class="imagem-espaco">
 
-    <a href="Byte_Earth_Documentacao_ABNT_Completa.docx" target="_blank">
-        ABNT
-    </a>
+            <a href="Byte_Earth_Documentacao_ABNT_Completa.docx" target="_blank">
+                ABNT
+            </a>
 
-</div>
+        </div>
 
     </div>
 
@@ -969,11 +1302,11 @@ footer {
 
         <div class="imagem-espaco">
 
-    <a href="Documentacao_site_certo.pdf" target="_blank">
-        DOCUMENTAÇÃO DO SITE
-    </a>
+            <a href="Documentacao_site_certo.pdf" target="_blank">
+                DOCUMENTAÇÃO DO SITE
+            </a>
 
-</div>
+        </div>
 
     </div>
 
@@ -998,7 +1331,10 @@ footer {
             <h3>Storyboard 1</h3>
 
             <div class="imagem-espaco">
-                <img src="storyboard1.jpg" alt="Storyboard 1">
+
+                <img src="storyboard1.jpg"
+                     alt="Storyboard 1">
+
             </div>
 
         </div>
@@ -1008,7 +1344,10 @@ footer {
             <h3>Storyboard 2</h3>
 
             <div class="imagem-espaco">
-                <img src="storyboard2.jpg" alt="Storyboard 2">
+
+                <img src="storyboard2.jpg"
+                     alt="Storyboard 2">
+
             </div>
 
         </div>
@@ -1018,7 +1357,10 @@ footer {
             <h3>Storyboard 3</h3>
 
             <div class="imagem-espaco">
-                <img src="storyboard3.jpg" alt="Storyboard 3">
+
+                <img src="storyboard3.jpg"
+                     alt="Storyboard 3">
+
             </div>
 
         </div>
@@ -1028,7 +1370,10 @@ footer {
             <h3>Storyboard 4</h3>
 
             <div class="imagem-espaco">
-                <img src="storyboard4.jpg" alt="Storyboard 4">
+
+                <img src="storyboard4.jpg"
+                     alt="Storyboard 4">
+
             </div>
 
         </div>
@@ -1038,7 +1383,10 @@ footer {
             <h3>Storyboard 5</h3>
 
             <div class="imagem-espaco">
-                <img src="storyboard5.jpg" alt="Storyboard 5">
+
+                <img src="storyboard5.jpg"
+                     alt="Storyboard 5">
+
             </div>
 
         </div>
@@ -1074,9 +1422,9 @@ footer {
             </button>
 
             <img id="codigo-jogo-imagem"
-                src="codegame1.jpeg"
-                class="codigo-imagem"
-                alt="Código principal do jogo">
+                 src="codegame1.jpeg"
+                 class="codigo-imagem"
+                 alt="Código principal do jogo">
 
             <button onclick="codigoJogoProximo()">
                 &#10095;
@@ -1089,10 +1437,14 @@ footer {
         </p>
 
         <p>
+
             <strong>Legenda do código:</strong>
-            <span id="codigo-jogo-legenda">Parte do código que permite o David andar, além de um pouco da programação que
-                permite existir a gravidade, falando mais sobre a física do jogo. 
+
+            <span id="codigo-jogo-legenda">
+                Parte do código que permite o David andar, além de um pouco da programação que
+                permite existir a gravidade, falando mais sobre a física do jogo.
             </span>
+
         </p>
 
     </div>
@@ -1114,9 +1466,9 @@ footer {
             </button>
 
             <img id="codigo-site-imagem"
-                src="codesite1.jpeg"
-                class="codigo-imagem"
-                alt="Código principal do site">
+                 src="codesite1.jpeg"
+                 class="codigo-imagem"
+                 alt="Código principal do site">
 
             <button onclick="codigoSiteProximo()">
                 &#10095;
@@ -1129,9 +1481,14 @@ footer {
         </p>
 
         <p>
+
             <strong>Legenda do código:</strong>
-            <span id="codigo-site-legenda">Um pouco do início do código, início do cabeçalho e
-                 de uma das partes mais importantes, o header. </span>
+
+            <span id="codigo-site-legenda">
+                Um pouco do início do código, início do cabeçalho e
+                de uma das partes mais importantes, o header.
+            </span>
+
         </p>
 
     </div>
@@ -1151,10 +1508,13 @@ footer {
 
     <div class="card">
 
-        <h3> Menu pricipal</h3>
+        <h3>Menu pricipal</h3>
 
         <div class="imagem-espaco">
-            <img src="menu.jpeg" alt="Cenário 1">
+
+            <img src="menu.jpeg"
+                 alt="Cenário 1">
+
         </div>
 
         <p>
@@ -1167,10 +1527,13 @@ footer {
 
     <div class="card">
 
-        <h3>Avenida dos Sonhos </h3>
+        <h3>Avenida dos Sonhos</h3>
 
         <div class="imagem-espaco">
-            <img src="fase1.jpeg" alt="Cenário 2">
+
+            <img src="fase1.jpeg"
+                 alt="Cenário 2">
+
         </div>
 
         <p>
@@ -1185,11 +1548,14 @@ footer {
         <h3>Subúrbios Devastados (parte 1)</h3>
 
         <div class="imagem-espaco">
-            <img src="SUBURBIOS.DEVASTADOS.png" alt="Cenário 3">
+
+            <img src="SUBURBIOS.DEVASTADOS.png"
+                 alt="Cenário 3">
+
         </div>
 
         <p>
-            Apenas um zumbi para preparar David do que vem pela frente. 
+            Apenas um zumbi para preparar David do que vem pela frente.
         </p>
 
     </div>
@@ -1200,11 +1566,14 @@ footer {
         <h3>Subúrbios Devastados (parte 2)</h3>
 
         <div class="imagem-espaco">
-            <img src="Metrô em Ruínas na Cidade Abandonada.png" alt="Cenário 4">
+
+            <img src="Metrô em Ruínas na Cidade Abandonada.png"
+                 alt="Cenário 4">
+
         </div>
 
         <p>
-             CUIDADO! SÃO MUITOS!!!
+            CUIDADO! SÃO MUITOS!!!
         </p>
 
     </div>
@@ -1215,7 +1584,10 @@ footer {
         <h3>Metrô em Ruínas (parte 1)</h3>
 
         <div class="imagem-espaco">
-            <img src="fase4.jpeg" alt="Cenário 5">
+
+            <img src="fase4.jpeg"
+                 alt="Cenário 5">
+
         </div>
 
         <p>
@@ -1230,26 +1602,33 @@ footer {
         <h3>Metrô em Ruínas (parte 2, Quiz)</h3>
 
         <div class="imagem-espaco">
-            <img src="METRO.QUIZ.png" alt="Cenário 6">
+
+            <img src="METRO.QUIZ.png"
+                 alt="Cenário 6">
+
         </div>
 
         <p>
             Chega de zumbis! Aqui você terá de por em prática seus conhecimentos sobre IFDS, ACRE e matemática. Isso se quiser
-            passar para uma... EMBOSCADA!! 
+            passar para uma... EMBOSCADA!!
         </p>
 
     </div>
+
 
     <div class="card">
 
         <h3>David vs Paul</h3>
 
         <div class="imagem-espaco">
-            <img src="arena.jpeg" alt="Cenário 7">
+
+            <img src="arena.jpeg"
+                 alt="Cenário 7">
+
         </div>
 
         <p>
-            Chegou a hora de enfrentar o responsável por todo o caos da Terra, 
+            Chegou a hora de enfrentar o responsável por todo o caos da Terra,
             se prepare para uma batalha épica contra Paul, o irmão do protagonista.
         </p>
 
@@ -1265,7 +1644,7 @@ footer {
     <h2>Baixe o jogo!</h2>
 
     <p class="subtitulo">
-        Em breve você poderá baixar o jogo por aqui.
+        Baixe a versão do jogo e comece sua aventura em Byte-Earth.
     </p>
 
     <div class="card">
@@ -1273,13 +1652,19 @@ footer {
         <h3>Download</h3>
 
         <p>
-            Link do github:<br>
-            https://github.com/ophkkj/ByteEarth_versao-fn
+            Clique no botão abaixo para baixar o jogo:
         </p>
+
+        <a href="jogo/"
+           download
+           class="botao-download">
+            Jogue Agora
+        </a>
 
     </div>
 
 </section>
+
 
 <!-- SAC -->
 
@@ -1296,7 +1681,7 @@ footer {
         <h3>E-mail</h3>
 
         <p>
-            davielmerror@gmail.com
+            davi.oliveira1@aluno.ifsp.edu.br
             <br>
             ph13012000@gmail.com
             <br>
@@ -1311,6 +1696,7 @@ footer {
 
 </main>
 
+
 <!-- RODAPÉ -->
 
 <footer>
@@ -1320,9 +1706,14 @@ footer {
 
 </footer>
 
+
 <!-- JAVASCRIPT -->
 
 <script>
+
+/* ============================= */
+/* NAVEGAÇÃO ENTRE AS SEÇÕES */
+/* ============================= */
 
 function mostrar(id, botao) {
 
@@ -1335,9 +1726,11 @@ function mostrar(id, botao) {
 
     });
 
+
     document
         .getElementById(id)
         .classList.add("ativa");
+
 
     const botoes =
         document.querySelectorAll(".menu button");
@@ -1348,7 +1741,9 @@ function mostrar(id, botao) {
 
     });
 
+
     botao.classList.add("ativo");
+
 
     window.scrollTo({
         top: 0,
@@ -1358,9 +1753,12 @@ function mostrar(id, botao) {
 }
 
 
+/* ============================= */
 /* CÓDIGOS DO JOGO */
+/* ============================= */
 
 let codigoJogoAtual = 1;
+
 
 const imagensCodigoJogo = [
     "codegame1.jpeg",
@@ -1370,13 +1768,19 @@ const imagensCodigoJogo = [
     "codegame5.jpeg"
 ];
 
+
 const legendasCodigoJogo = [
     "[ESCREVA AQUI A LEGENDA DO CÓDIGO 1]",
+
     "Um pouco mais sobre a movimentação horizontal de David e também sobre a reação dele ao levar dano.",
+
     "Uma parte sobre o comportamento dos zumbis, incluindo onde eles são gerados, quantidade e distribuição pelas fases.",
+
     "Essa parte dos códigos mostra um pouco sobre a mecânica de troca de armas, o desenvolvimento do canhão, que tira mais pontos de vida e principalmente sobre o sistema de ataque, como que a bala sai e etc",
+
     "Esse pedaço fala um pouco mais sobre interface, animações e atalhos de teste"
 ];
+
 
 function atualizarCodigoJogo() {
 
@@ -1391,34 +1795,47 @@ function atualizarCodigoJogo() {
 
 }
 
+
 function codigoJogoProximo() {
 
     codigoJogoAtual++;
 
+
     if (codigoJogoAtual > 5) {
+
         codigoJogoAtual = 1;
+
     }
+
 
     atualizarCodigoJogo();
 
 }
+
 
 function codigoJogoAnterior() {
 
     codigoJogoAtual--;
 
+
     if (codigoJogoAtual < 1) {
+
         codigoJogoAtual = 5;
+
     }
+
 
     atualizarCodigoJogo();
 
 }
 
 
+/* ============================= */
 /* CÓDIGOS DO SITE */
+/* ============================= */
 
 let codigoSiteAtual = 1;
+
 
 const imagensCodigoSite = [
     "codesite1.jpeg",
@@ -1428,13 +1845,19 @@ const imagensCodigoSite = [
     "codesite5.jpg"
 ];
 
+
 const legendasCodigoSite = [
     "[ESCREVA AQUI A LEGENDA DO CÓDIGO 1]",
+
     "Aqui mostra um pouco de como foi programado as abas do código(Introdução, Sinopse, Personagens e etc...)",
+
     "Este código controla a navegação do site, exibindo a seção selecionada, desativando as demais e destacando no menu a opção escolhida.",
+
     "Um pouco da produção do carrossel, que está sendo usado nessa mesma aba. O carrossel doi uma das partes mais difíceis de serem programadas.",
+
     "Responsividade: aqui mostra um pouco da programação do processo de responsividade do site (funcionar em qualquer dispositivo)."
 ];
+
 
 function atualizarCodigoSite() {
 
@@ -1449,30 +1872,44 @@ function atualizarCodigoSite() {
 
 }
 
+
 function codigoSiteProximo() {
 
     codigoSiteAtual++;
 
+
     if (codigoSiteAtual > 5) {
+
         codigoSiteAtual = 1;
+
     }
+
 
     atualizarCodigoSite();
 
 }
+
 
 function codigoSiteAnterior() {
 
     codigoSiteAtual--;
 
+
     if (codigoSiteAtual < 1) {
+
         codigoSiteAtual = 5;
+
     }
+
 
     atualizarCodigoSite();
 
 }
 
+
+/* ============================= */
+/* EFEITO DE SCROLL DO BANNER */
+/* ============================= */
 
 window.addEventListener("scroll", function() {
 
@@ -1482,8 +1919,111 @@ window.addEventListener("scroll", function() {
     const scroll =
         window.scrollY;
 
-    imagem.style.transform =
-        "translateY(" + (scroll * 0.35) + "px)";
+    if (imagem) {
+
+        imagem.style.transform =
+            "translateY(" + (scroll * 0.35) + "px)";
+
+    }
+
+});
+
+
+/* ============================= */
+/* MODO CLARO / MODO ESCURO */
+/* ============================= */
+
+function alternarMenuTema() {
+
+    const menu =
+        document.getElementById("menu-tema");
+
+
+    if (menu) {
+
+        menu.classList.toggle("aberto");
+
+    }
+
+}
+
+
+function mudarTema(tema) {
+
+    const corpo =
+        document.body;
+
+    const menu =
+        document.getElementById("menu-tema");
+
+
+    if (tema === "claro") {
+
+        corpo.classList.add("modo-claro");
+
+        localStorage.setItem(
+            "temaByteEarth",
+            "claro"
+        );
+
+    } else {
+
+        corpo.classList.remove("modo-claro");
+
+        localStorage.setItem(
+            "temaByteEarth",
+            "escuro"
+        );
+
+    }
+
+
+    if (menu) {
+
+        menu.classList.remove("aberto");
+
+    }
+
+}
+
+
+/* ============================= */
+/* RECUPERA O TEMA SALVO */
+/* ============================= */
+
+const temaSalvo =
+    localStorage.getItem("temaByteEarth");
+
+
+if (temaSalvo === "claro") {
+
+    document.body.classList.add("modo-claro");
+
+}
+
+
+/* ============================= */
+/* FECHA O MENU AO CLICAR FORA */
+/* ============================= */
+
+document.addEventListener("click", function(evento) {
+
+    const opcoes =
+        document.querySelector(".opcoes-visualizacao");
+
+    const menu =
+        document.getElementById("menu-tema");
+
+
+    if (
+        opcoes &&
+        menu &&
+        !opcoes.contains(evento.target)
+    ) {
+
+        menu.classList.remove("aberto");
+
+    }
 
 });
 
